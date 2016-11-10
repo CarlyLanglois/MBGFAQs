@@ -1,9 +1,19 @@
 .jumbotron{
   background-color: transparent;
+  padding: 1%;
+}
+
+#title{
+  margin-top: 3%;
 }
 
 img{
   width: 75%;
+}
+
+main{
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .container-fluid {
