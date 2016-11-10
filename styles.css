@@ -1,0 +1,23 @@
+.jumbotron{
+  background-color: transparent;
+}
+
+img{
+  width: 75%;
+}
+
+.container-fluid {
+  font-family: Georgia, BemboStdRegular, Serif;
+  color: #295307;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.panel-title {
+  color: #295307;
+  font-family: Georgia, BemboStdRegular, Serif;\
+}
+
+.panel-default>.panel-heading{
+  background-color: #c9d7b2;
+}
