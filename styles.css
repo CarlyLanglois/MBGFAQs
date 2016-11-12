@@ -2,6 +2,10 @@
     background-color: white;
 }
 
+a{
+    color: #295307;
+}
+
 .jumbotron{
   background-color: transparent;
   padding: 1%;
