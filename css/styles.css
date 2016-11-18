@@ -1,0 +1,81 @@
+.navbar{
+    background-color: white;
+}
+
+a{
+    color: #295307;
+}
+
+#join{
+    background-image: url(http://www.missouribotanicalgarden.org/Portals/0/Calendar%20Images/MBG/garden_CMT_390.jpg);
+    height: 200px;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px;
+    text-shadow: 1px 1px 2px black;
+}
+
+#gift-membership{
+    background-image: url(http://www.missouribotanicalgarden.org/Portals/0/Sustainability/images/Headers/header_sunflowers.jpg);
+    height: 200px;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px;
+    text-shadow: 1px 1px 2px black;
+}
+
+#faqs{
+    background-image: url(http://www.missouribotanicalgarden.org/Portals/0/Gardens/Demonstration%20Garden/5857169050_d670ed2221_m.jpg);
+    height: 200px;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px;
+    text-shadow: 1px 1px 2px black;
+}
+
+#events{
+    background-image: url(http://www.missouribotanicalgarden.org/Portals/0/Calendar%20Images/BH/Heliconius-sapho_260.jpg);
+    height: 200px;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px;
+    text-shadow: 1px 1px 2px black;
+}
+
+.jumbotron{
+  background-color: transparent;
+  padding: 1%;
+}
+
+#title{
+  margin-top: 3%;
+}
+
+img{
+  width: 75%;
+}
+
+main{
+  padding-left: 30%;
+  padding-right: 30%;
+}
+
+.container-fluid {
+  font-family: Georgia, BemboStdRegular, Serif;
+  color: #295307;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.panel-title {
+  color: #295307;
+  font-family: Georgia, BemboStdRegular, Serif;\
+}
+
+.panel-default>.panel-heading{
+  background-color: #c9d7b2;
+}
