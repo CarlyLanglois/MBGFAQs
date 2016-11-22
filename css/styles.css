@@ -1,5 +1,14 @@
 .navbar{
+    height:200px;
     background-color: white;
+}
+
+.minimized{
+    height: 50px;
+}
+
+body{
+    padding-top: 200px;
 }
 
 a{
@@ -47,16 +56,13 @@ a{
 }
 
 .jumbotron{
-  background-color: transparent;
+  height:40%;
   padding: 1%;
+  text-align: center;
 }
 
 #title{
   margin-top: 3%;
-}
-
-img{
-  width: 75%;
 }
 
 main{

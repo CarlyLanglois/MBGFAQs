@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Missouri Botanical Garden Membership FAQs</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!--custom CSS-->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/calendar-style.css">
+
+    <!--Font Awesome CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Bootstrap compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://www.missouribotanicalgarden.org/">
+                    <img src="http://www.missouribotanicalgarden.org/Portals/0/Images/logo.gif" alt="Missouri Botanical Garden">
+                </a>
+            </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <!--Members - Donate - Volunteer links-->
+      <ul class="nav navbar-nav navbar-right">
+          <!--Become a Member link-->
+        <li class="active">
+            <a href="https://support.missouribotanicalgarden.org/pages/membership/membership-form">
+                Become a Member
+                <span class="sr-only">(current)</span>
+            </a>
+        </li>
+        <!--Donate Link-->
+        <li>
+            <a href="http://www.missouribotanicalgarden.org/donate.aspx">
+                Donate
+            </a>
+        </li>
+        <!--Volunteer Link-->
+        <li class="dropdown">
+            <a href="http://www.missouribotanicalgarden.org/about/additional-information/volunteer.aspx">
+                Volunteer
+            </a>
+        </li>
+        <!--Search bar-->
+        <li>
+            <form class="navbar-form">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </form>
+        </li>
+      </ul>
+
+
+    </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <table align="center" id="calendar" class="table-bordered">
+        <div class="month">
+            <ul>
+                <li class="prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></li>
+                <li class="next"><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
+                <li>
+                    November<br>
+                    <span style="font-size:18px">2016</span>
+                </li>
+            </ul>
+        </div>
+        <tr class="weekdays">
+            <th>Su</th>
+            <th>Mo</th>
+            <th>Tu</th>
+            <th>We</th>
+            <th>Th</th>
+            <th>Fr</th>
+            <th>Sa</th>
+
+        </tr>
+
+        <tr class="days">
+            <td><br></td>
+            <td><br></td>
+            <td class="date">1</td>
+            <td class="date">2</td>
+            <td class="date">3</td>
+            <td class="date">4</td>
+            <td class="date">5</td>
+            <td class="date">6</td>
+            <td class="date">7</td>
+            <td class="date">8</td>
+            <td class="date">9</td>
+            <td class="dateactive"><span class="active">10</span></td>
+            <td class="date" id="test">11</td>
+            <td class="date">12</td>
+            <td class="date">13</td>
+            <td class="date">14</td>
+            <td class="date">15</td>
+            <td class="date">16</td>
+            <td class="date">17</td>
+            <td class="date">18</td>
+            <td class="date">19</td>
+            <td class="date">20</td>
+            <td class="date">21</td>
+            <td class="date">22</td>
+            <td class="date">23</td>
+            <td class="date">24</td>
+            <td class="date">25</td>
+            <td class="date">26</td>
+            <td class="date">27</td>
+            <td class="date">28</td>
+            <td class="date">29</td>
+            <td class="date">30</td>
+        </tr>
+
+    </table>
+
+    <!--JavaScript file-->
+    <script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>
