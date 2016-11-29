@@ -17,57 +17,76 @@ a{
 
 #join{
     background-image: url(http://www.missouribotanicalgarden.org/Portals/0/Calendar%20Images/MBG/garden_CMT_390.jpg);
-    height: 200px;
     background-size: cover;
-    color: white;
+    height:250px;
+    max-width: 250px;
     text-align: center;
-    padding: 100px;
-    text-shadow: 1px 1px 2px black;
+    font-size: x-large;
+    padding-top: 100px;
+    text-shadow: 3px 3px 3px black;
+}
+
+#join a{
+    color: #c9d7b2;
+    padding-top: 50%;
 }
 
 #gift-membership{
     background-image: url(http://www.missouribotanicalgarden.org/Portals/0/Sustainability/images/Headers/header_sunflowers.jpg);
-    height: 200px;
     background-size: cover;
-    color: white;
+    height:250px;
+    max-width: 250px;
     text-align: center;
-    padding: 100px;
-    text-shadow: 1px 1px 2px black;
+    font-size: x-large;
+    padding-top: 100px;
+    text-shadow: 3px 3px 3px black;
+}
+
+#gift-membership a{
+    color: #c9d7b2;
 }
 
 #faqs{
     background-image: url(http://www.missouribotanicalgarden.org/Portals/0/Gardens/Demonstration%20Garden/5857169050_d670ed2221_m.jpg);
-    height: 200px;
     background-size: cover;
-    color: white;
+    height:250px;
+    max-width: 250px;
     text-align: center;
-    padding: 100px;
-    text-shadow: 1px 1px 2px black;
+    font-size: x-large;
+    padding-top: 100px;
+    text-shadow: 3px 3px 3px black;
+}
+
+#faqs a{
+    color: #c9d7b2;
 }
 
 #events{
     background-image: url(http://www.missouribotanicalgarden.org/Portals/0/Calendar%20Images/BH/Heliconius-sapho_260.jpg);
-    height: 200px;
     background-size: cover;
-    color: white;
+    height:250px;
+    max-width: 250px;
     text-align: center;
-    padding: 100px;
-    text-shadow: 1px 1px 2px black;
+    font-size: x-large;
+    padding-top: 100px;
+    text-shadow: 3px 3px 3px black;
+}
+
+#events a{
+    color: #c9d7b2;
 }
 
 .jumbotron{
-  height:40%;
+  height:200px;
   padding: 1%;
   text-align: center;
+  background-color: transparent;
+  font-size: -webkit-xxx-large;
+  font-weight: 800;
 }
 
 #title{
   margin-top: 3%;
-}
-
-main{
-  padding-left: 30%;
-  padding-right: 30%;
 }
 
 .container-fluid {
