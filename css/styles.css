@@ -11,11 +11,18 @@ body{
     padding-top: 200px;
 }
 
+main{
+    align-content: center;
+}
+
 a{
     color: #295307;
 }
 
 #join{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     background-image: url(http://www.missouribotanicalgarden.org/Portals/0/Calendar%20Images/MBG/garden_CMT_390.jpg);
     background-size: cover;
     height:250px;
@@ -32,6 +39,9 @@ a{
 }
 
 #gift-membership{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     background-image: url(http://www.missouribotanicalgarden.org/Portals/0/Sustainability/images/Headers/header_sunflowers.jpg);
     background-size: cover;
     height:250px;
@@ -47,6 +57,9 @@ a{
 }
 
 #faqs{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     background-image: url(http://www.missouribotanicalgarden.org/Portals/0/Gardens/Demonstration%20Garden/5857169050_d670ed2221_m.jpg);
     background-size: cover;
     height:250px;
@@ -62,6 +75,9 @@ a{
 }
 
 #events{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     background-image: url(http://www.missouribotanicalgarden.org/Portals/0/Calendar%20Images/BH/Heliconius-sapho_260.jpg);
     background-size: cover;
     height:250px;
@@ -77,8 +93,7 @@ a{
 }
 
 .jumbotron{
-  height:200px;
-  padding: 1%;
+  padding-bottom: 0;
   text-align: center;
   background-color: transparent;
   font-size: -webkit-xxx-large;
@@ -103,4 +118,8 @@ a{
 
 .panel-default>.panel-heading{
   background-color: #c9d7b2;
+}
+
+.navbar-right{
+    font-size: 150%;
 }
