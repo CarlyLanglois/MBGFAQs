@@ -123,3 +123,8 @@ a{
 .navbar-right{
     font-size: 150%;
 }
+
+#bs-example-navbar-collapse-1{
+    background-color: white;
+    padding-top: 50px;
+}
