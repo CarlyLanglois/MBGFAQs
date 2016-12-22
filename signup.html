@@ -60,48 +60,72 @@
 
     <h1 class="jumbotron">
       <div id="title">
-          Members Make Our Mission Possible
+          Sign Up
       </div>
     </h1>
 
 
     <main>
-        <!--Join or Renew-->
-    <div class="col-sm-6 col-md-3">
-        <div id="join" class="img-responsive img-circle">
-            <a href="https://support.missouribotanicalgarden.org/pages/membership/membership-form">
-                JOIN OR RENEW
-            </a>
+        <div id="signup_form">
+            <form method="post">
+                <table>
+                    <tr>
+                        <td><label for="first_name">First Name</label></td>
+                        <td>
+                            <input name="first_name" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="last_name">Last Name</label></td>
+                        <td>
+                            <input name="last_name" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="address">Address</label></td>
+                        <td>
+                            <input name="address" type="address">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="phone">Phone Number</label></td>
+                        <td>
+                            <input name="phone" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email</label></td>
+                        <td>
+                            <input name="email" type="email">
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="levels" id="Individual" value="Individual">
+                        Individual
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="levels" id="Garden" value="Garden" checked>
+                        Garden
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="levels" id="Friends and Family" value="Friends and Family">
+                        Friends and Family
+                    </label>
+                </div>
+
+
+
+                <input class="btn" type="submit" value="Sign Up">
+            </form>
         </div>
 
-    </div>
-    <!--Give the Gift of Membership-->
-    <div class="col-sm-6 col-md-3">
-        <div id="gift-membership" class="img-responsive img-circle">
-            <a href="https://support.missouribotanicalgarden.org/giftmembership">
-                GIVE THE GIFT OF MEMBERSHIP
-            </a>
-        </div>
-
-    </div>
-    <!--Membership FAQs-->
-    <div class="col-sm-6 col-md-3">
-        <div id="faqs" class="img-responsive img-circle">
-            <a href="index.html">
-                MEMBER BENEFITS AND FAQS
-            </a>
-        </div>
-
-    </div>
-    <!--Member Events-->
-    <div class="col-sm-6 col-md-3">
-        <div id="events" class="img-responsive img-circle">
-            <a href="events.html">
-                MEMBER EVENTS
-            </a>
-        </div>
-
-    </div>
 
     <div class="col-md-12">
         <div class="row">

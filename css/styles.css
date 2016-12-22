@@ -128,3 +128,7 @@ a{
     background-color: white;
     padding-top: 50px;
 }
+
+div{
+    align-content: center;
+}
