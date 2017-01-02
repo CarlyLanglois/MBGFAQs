@@ -11,6 +11,7 @@ $(document).ready(function(){
         }
     });
 
+
     $('#calendar').fullCalendar({
         // put your options and callbacks here
         events:[
@@ -29,20 +30,28 @@ $(document).ready(function(){
         ]
     });
 
-    /*
-    //date click
-    $(".date").click(function(){
-        var date_val = $(this).text();
-        console.log(date_val);
-    });
-
-    //change month
-    $(".next").click(function(){
-        $("#month").text("February");
-    });
-
-    //months
-    var months = {"January" , "February", "March", }
-    */
+    $("#login_form").submit(login)
 
 });
+
+function login(event) {
+
+    // This prevents the form submission from doing what it normally does:
+    //send a request (which would cause our page to refresh).
+    // Because we will be making our own AJAX request,
+    //we dont need to send a normal request and we definitely don't want the page to refresh.
+    event.preventDefault();
+
+    var member_id = $("#login_form input[name=member_id]").val();
+    if (member_id != "12345"){
+        $(".alert").attr("hidden", false);
+    } else {
+        $("#login_section").attr("hidden", true);
+        $("#member_home_section").attr("hidden", false);
+    }
+
+};
+
+function render() {
+    //$(".alert").attr("hidden", isValidated);
+};
