@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>Member Events</title>
+    <title>MBG Members</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -24,7 +24,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <!--custom JavaScript file-->
-    <script type="text/javascript" src="js/home-script.js"></script>
+    <script type="text/javascript" src="scripts/mbg.js"></script>
 
 
 </head>
@@ -70,7 +70,7 @@
                 <div id="login_section">
                     <div id="login_form">
                         <span hidden="true" class="alert alert-danger">Unable to locate member ID. Please try again!</span>
-                        <form method="post">
+                        <form>
                             <label>
                                 <div>Member ID</div>
                                 <input type="text" name="member_id">
@@ -83,25 +83,90 @@
                         </form>
                     </div>
                     <div>
-                        <p>Not a member yet?</p> <a href="signup.html">Join today!</a>
+                        <p>Not a member yet?</p>
+                        <button id="join_start" class="btn">Join today!</button>
                     </div>
                 </div>
+                <!--Join Section-->
+                <div id="join_section" hidden="true">
+                    <div id="join_form">
+                        <span hidden="true" class="alert alert-danger">Invalid input. Please try again!</span>
+                        <form>
+
+                        <table>
+                            <tr>
+                                <td><label for="first_name">First Name</label></td>
+                                <td>
+                                    <input name="first_name" type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="last_name">Last Name</label></td>
+                                <td>
+                                    <input name="last_name" type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="address">Address</label></td>
+                                <td>
+                                    <input name="address" type="address">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="phone">Phone Number</label></td>
+                                <td>
+                                    <input name="phone" type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="email">Email</label></td>
+                                <td>
+                                    <input name="email" type="email">
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="levels" id="Individual" value="Individual">
+                                Individual
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="levels" id="Garden" value="Garden" checked>
+                                Garden
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="levels" id="Friends and Family" value="Friends and Family">
+                                Friends and Family
+                            </label>
+                        </div>
+
+
+
+                        <input class="btn" type="submit">
+                    </form>
+                </div>
+            </div>
                 <!--Member Home Section-->
                 <div id="member_home_section" hidden="true">
-                    <!--Join or Renew-->
+                    <!--Renew-->
                     <div class="col-sm-6 col-md-3">
                         <div id="join" class="img-responsive img-circle">
                             <a href="https://support.missouribotanicalgarden.org/pages/membership/membership-form">
-                                JOIN OR RENEW
+                                RENEW
                             </a>
                         </div>
 
                     </div>
-                    <!--Give the Gift of Membership-->
+                    <!--Give a Gift Membership-->
                     <div class="col-sm-6 col-md-3">
                         <div id="gift-membership" class="img-responsive img-circle">
                             <a href="https://support.missouribotanicalgarden.org/giftmembership">
-                                GIVE THE GIFT OF MEMBERSHIP
+                                GIVE A GIFT MEMBERSHIP
                             </a>
                         </div>
 
