@@ -45,6 +45,10 @@ $(document).ready(function(){
         ]
     });
 
+    $("#navbar-login-btn").click(renderLogin)
+
+    $("#navbar-logout-btn").click(renderLogin)
+
     $("#login_form").submit(login)
 
     $("#join_start").click(join_start)
@@ -52,6 +56,17 @@ $(document).ready(function(){
     $("#join_form").submit(join_submit)
 
 });
+
+
+//called when the user clicks the navbar login or logout buttons,
+// brings the user to the login/sign up page
+function renderLogin(event) {
+
+    event.preventDefault();
+
+    setLoggedInStatus(false);
+
+}
 
 function login(event) {
 
@@ -66,8 +81,7 @@ function login(event) {
         $(".alert").attr("hidden", false);
     } else {
         // if valid, hide login section and show member home section
-        $("#login_section").attr("hidden", true);
-        $("#member_home_section").attr("hidden", false);
+        setLoggedInStatus(true);
     }
 
 };
@@ -87,9 +101,15 @@ function join_submit(event) {
     event.preventDefault();
 
     //on submit, display member home section
-    $("#member_home_section").attr("hidden", false);
-    $("#login_section").attr("hidden", true);
-    $("#join_section").attr("hidden", true);
+    setLoggedInStatus(true);
+
+    };
+
+function setLoggedInStatus(isLoggedIn){
+    $("#member_home_section").attr("hidden", !isLoggedIn);
+    $("#login_section").attr("hidden", isLoggedIn);
+    $("#join_section").attr("hidden", isLoggedIn);
+}
 
     //grab info from join form
     /*
@@ -118,6 +138,5 @@ function join_submit(event) {
         }
     }
     */
-};
 
     //member_model.first_name = first_name;

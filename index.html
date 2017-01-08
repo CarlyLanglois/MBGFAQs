@@ -30,6 +30,7 @@
 </head>
 
 <body>
+    <!-- NavBar Section-->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -49,9 +50,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="login.html">Log In</a></li>
-            <li><a href="http://www.missouribotanicalgarden.org/donate.aspx">Donate</a></li>
-            <li><a href="http://www.missouribotanicalgarden.org/about/additional-information/volunteer.aspx">Volunteer</a></li>
+            <li><a id="navbar-login-btn">Log In</a></li>
+            <li><a id="navbar-logout-btn">Log Out</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -68,6 +68,7 @@
             <main>
                 <!--Login Section-->
                 <div id="login_section">
+                    <div class="col-md-6">
                     <div id="login_form">
                         <span hidden="true" class="alert alert-danger">Unable to locate member ID. Please try again!</span>
                         <form>
@@ -87,70 +88,69 @@
                         <button id="join_start" class="btn">Join today!</button>
                     </div>
                 </div>
+                </div>
                 <!--Join Section-->
                 <div id="join_section" hidden="true">
+                    <div class="col-md-6">
                     <div id="join_form">
                         <span hidden="true" class="alert alert-danger">Invalid input. Please try again!</span>
                         <form>
+                            <table>
+                                <tr>
+                                    <td><label for="first_name">First Name</label></td>
+                                    <td>
+                                        <input name="first_name" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="last_name">Last Name</label></td>
+                                    <td>
+                                        <input name="last_name" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="address">Address</label></td>
+                                    <td>
+                                        <input name="address" type="address">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="phone">Phone Number</label></td>
+                                    <td>
+                                        <input name="phone" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="email">Email</label></td>
+                                    <td>
+                                        <input name="email" type="email">
+                                    </td>
+                                </tr>
+                            </table>
 
-                        <table>
-                            <tr>
-                                <td><label for="first_name">First Name</label></td>
-                                <td>
-                                    <input name="first_name" type="text">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label for="last_name">Last Name</label></td>
-                                <td>
-                                    <input name="last_name" type="text">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label for="address">Address</label></td>
-                                <td>
-                                    <input name="address" type="address">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label for="phone">Phone Number</label></td>
-                                <td>
-                                    <input name="phone" type="text">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label for="email">Email</label></td>
-                                <td>
-                                    <input name="email" type="email">
-                                </td>
-                            </tr>
-                        </table>
-
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="levels" id="Individual" value="Individual">
-                                Individual
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="levels" id="Garden" value="Garden" checked>
-                                Garden
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="levels" id="Friends and Family" value="Friends and Family">
-                                Friends and Family
-                            </label>
-                        </div>
-
-
-
-                        <input class="btn" type="submit">
-                    </form>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="levels" id="Individual" value="Individual">
+                                    Individual
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="levels" id="Garden" value="Garden" checked>
+                                    Garden
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="levels" id="Friends and Family" value="Friends and Family">
+                                    Friends and Family
+                                </label>
+                            </div>
+                            <input class="btn" type="submit">
+                        </form>
+                    </div>
                 </div>
-            </div>
+                </div>
                 <!--Member Home Section-->
                 <div id="member_home_section" hidden="true">
                     <!--Renew-->
@@ -183,7 +183,7 @@
                     <!--Member Events-->
                     <div class="col-sm-6 col-md-3">
                         <div id="events" class="img-responsive img-circle">
-                            <a href="events.html">
+                            <a href="fullcalendar.html">
                                 MEMBER EVENTS
                             </a>
                         </div>
