@@ -47,7 +47,6 @@ $(document).ready(function(){
 
     $("#calendar-container").hide();
 
-
     $("#navbar-login-btn").click(renderLogin)
 
     $("#navbar-logout-btn").click(renderLogin)
@@ -57,6 +56,8 @@ $(document).ready(function(){
     $("#join_start").click(join_start)
 
     $("#join_form").submit(join_submit)
+
+    $("#home-faqs-btn").click(toggleFAQs)
 
     $("#home-events-btn").click(toggleCalendar)
 
@@ -115,6 +116,13 @@ function setLoggedInStatus(isLoggedIn){
     $("#login_section").attr("hidden", isLoggedIn);
     $("#join_section").attr("hidden", isLoggedIn);
 };
+
+function toggleFAQs(event) {
+
+    event.preventDefault();
+
+    $("#faqs-section").toggle();
+}
 
 function toggleCalendar(event) {
 
