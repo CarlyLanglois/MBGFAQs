@@ -69,87 +69,87 @@
                 <!--Login Section-->
                 <div id="login_section">
                     <div class="col-md-6">
-                    <div id="login_form">
-                        <span hidden="true" class="alert alert-danger">Unable to locate member ID. Please try again!</span>
-                        <form>
-                            <label>
-                                <div>Member ID</div>
-                                <input type="text" name="member_id">
-                            </label><br>
-                            <label>
-                                <div>Last Name</div>
-                                <input type="text" name="last_name">
-                            </label><br>
-                            <input class="btn" type="submit">
-                        </form>
+                        <div id="login_form">
+                            <span hidden="true" class="alert alert-danger">Unable to locate member ID. Please try again!</span>
+                            <form>
+                                <label>
+                                    <div>Member ID</div>
+                                    <input type="text" name="member_id">
+                                </label><br>
+                                <label>
+                                    <div>Last Name</div>
+                                    <input type="text" name="last_name">
+                                </label><br>
+                                <input class="btn" type="submit">
+                            </form>
+                        </div>
+                        <div>
+                            <p>Not a member yet?</p>
+                            <button id="join_start" class="btn">Join today!</button>
+                        </div>
                     </div>
-                    <div>
-                        <p>Not a member yet?</p>
-                        <button id="join_start" class="btn">Join today!</button>
-                    </div>
-                </div>
                 </div>
                 <!--Join Section-->
                 <div id="join_section" hidden="true">
                     <div class="col-md-6">
-                    <div id="join_form">
-                        <span hidden="true" class="alert alert-danger">Invalid input. Please try again!</span>
-                        <form>
-                            <table>
-                                <tr>
-                                    <td><label for="first_name">First Name</label></td>
-                                    <td>
-                                        <input name="first_name" type="text">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><label for="last_name">Last Name</label></td>
-                                    <td>
-                                        <input name="last_name" type="text">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><label for="address">Address</label></td>
-                                    <td>
-                                        <input name="address" type="address">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><label for="phone">Phone Number</label></td>
-                                    <td>
-                                        <input name="phone" type="text">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><label for="email">Email</label></td>
-                                    <td>
-                                        <input name="email" type="email">
-                                    </td>
-                                </tr>
-                            </table>
+                        <div id="join_form">
+                            <span hidden="true" class="alert alert-danger">Invalid input. Please try again!</span>
+                            <form>
+                                <table>
+                                    <tr>
+                                        <td><label for="first_name">First Name</label></td>
+                                        <td>
+                                            <input name="first_name" type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="last_name">Last Name</label></td>
+                                        <td>
+                                            <input name="last_name" type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="address">Address</label></td>
+                                        <td>
+                                            <input name="address" type="address">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="phone">Phone Number</label></td>
+                                        <td>
+                                            <input name="phone" type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="email">Email</label></td>
+                                        <td>
+                                            <input name="email" type="email">
+                                        </td>
+                                    </tr>
+                                </table>
 
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="levels" id="Individual" value="Individual">
-                                    Individual
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="levels" id="Garden" value="Garden" checked>
-                                    Garden
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="levels" id="Friends and Family" value="Friends and Family">
-                                    Friends and Family
-                                </label>
-                            </div>
-                            <input class="btn" type="submit">
-                        </form>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="levels" id="Individual" value="Individual">
+                                        Individual
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="levels" id="Garden" value="Garden" checked>
+                                        Garden
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="levels" id="Friends and Family" value="Friends and Family">
+                                        Friends and Family
+                                    </label>
+                                </div>
+                                <input class="btn" type="submit">
+                            </form>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <!--Member Home Section-->
                 <div id="member_home_section" hidden="true">
@@ -160,7 +160,6 @@
                                 RENEW
                             </a>
                         </div>
-
                     </div>
                     <!--Give a Gift Membership-->
                     <div class="col-sm-6 col-md-3">
@@ -169,7 +168,6 @@
                                 GIVE A GIFT MEMBERSHIP
                             </a>
                         </div>
-
                     </div>
                     <!--Membership FAQs-->
                     <div class="col-sm-6 col-md-3">
@@ -183,11 +181,16 @@
                     <!--Member Events-->
                     <div class="col-sm-6 col-md-3">
                         <div id="events" class="img-responsive img-circle">
-                            <a href="fullcalendar.html">
+                            <a id="home-events-btn">
                                 MEMBER EVENTS
                             </a>
                         </div>
 
+                    </div>
+                </div>
+                <!-- Events Calendar Section -->
+                <div id="calendar-container">
+                    <div id="calendar">
                     </div>
                 </div>
                 <!-- Contact Us Section -->

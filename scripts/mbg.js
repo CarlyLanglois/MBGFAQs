@@ -27,7 +27,7 @@ $(document).ready(function(){
     });
 
 
-    $('#calendar').fullCalendar({
+    $("#calendar").fullCalendar({
         // put your options and callbacks here
         events:[
             {
@@ -45,6 +45,9 @@ $(document).ready(function(){
         ]
     });
 
+    $("#calendar-container").hide();
+
+
     $("#navbar-login-btn").click(renderLogin)
 
     $("#navbar-logout-btn").click(renderLogin)
@@ -54,6 +57,8 @@ $(document).ready(function(){
     $("#join_start").click(join_start)
 
     $("#join_form").submit(join_submit)
+
+    $("#home-events-btn").click(toggleCalendar)
 
 });
 
@@ -66,7 +71,7 @@ function renderLogin(event) {
 
     setLoggedInStatus(false);
 
-}
+};
 
 function login(event) {
 
@@ -103,13 +108,21 @@ function join_submit(event) {
     //on submit, display member home section
     setLoggedInStatus(true);
 
-    };
+};
 
 function setLoggedInStatus(isLoggedIn){
     $("#member_home_section").attr("hidden", !isLoggedIn);
     $("#login_section").attr("hidden", isLoggedIn);
     $("#join_section").attr("hidden", isLoggedIn);
-}
+};
+
+function toggleCalendar(event) {
+
+    event.preventDefault();
+
+    $("#calendar-container").toggle();
+
+};
 
     //grab info from join form
     /*
