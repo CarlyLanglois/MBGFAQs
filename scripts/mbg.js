@@ -121,7 +121,8 @@ function toggleFAQs(event) {
 
     event.preventDefault();
 
-    $("#faqs-section").toggle();
+    $("#faqs-container").toggle();
+    $("#calendar-container").hide();
 }
 
 function toggleCalendar(event) {
@@ -129,6 +130,7 @@ function toggleCalendar(event) {
     event.preventDefault();
 
     $("#calendar-container").toggle();
+    $("#faqs-container").hide();
 
 };
 

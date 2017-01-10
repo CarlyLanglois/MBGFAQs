@@ -129,6 +129,6 @@ a{
     padding-top: 50px;
 }
 
-div{
-    align-content: center;
+#faqs-container{
+    padding-top: 25%;
 }
