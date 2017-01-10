@@ -1,3 +1,5 @@
+// ------------------- MODEL ---------------------------//
+
 // all the stuff we need to keep track of
 var member_model = {
 
@@ -13,9 +15,10 @@ var member_model = {
 
 }
 
+// ------------------ VIEW --------------------- //
 $(document).ready(function(){
 
-    //brand scroll change
+    // ---- NAVBAR: brand image changes when the window scrolls up and down
     $(window).scroll(function() {
         if (($(document).scrollTop() > 100) | ($(window).width() < 800)){
             $(".navbar").addClass("minimized");
@@ -26,7 +29,7 @@ $(document).ready(function(){
         }
     });
 
-
+    // ---- CALENDAR:
     $("#calendar").fullCalendar({
         // put your options and callbacks here
         events:[
@@ -42,7 +45,10 @@ $(document).ready(function(){
                 end: "2017-02-03T20:30:00",
                 allDay: false
             }
-        ]
+        ],
+        eventClick: function() {
+            console.log("this works, ya?!");
+        }
     });
 
     $("#calendar-container").hide();
