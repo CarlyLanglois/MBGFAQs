@@ -67,89 +67,69 @@
             </h1>
             <main>
                 <!--Login Section-->
-                <div id="login_section">
-                    <div class="col-md-6">
-                        <div id="login_form">
-                            <span hidden="true" class="alert alert-danger">Unable to locate member ID. Please try again!</span>
-                            <form>
-                                <label>
-                                    <div>Member ID</div>
-                                    <input type="text" name="member_id">
-                                </label><br>
-                                <label>
-                                    <div>Last Name</div>
-                                    <input type="text" name="last_name">
-                                </label><br>
-                                <input class="btn" type="submit">
-                            </form>
-                        </div>
-                        <div>
-                            <p>Not a member yet?</p>
-                            <button id="join_start" class="btn">Join today!</button>
-                        </div>
+                <div id="login_section" class="col-md-6">
+                    <h3>Already a member?</h3>
+                    <div id="login_form">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label class="control-label">Member ID</label>
+                                <input type="text" class="form-control" name="member_id"><br>
+                            </div>
+                            <input class="btn" type="submit">
+                        </form>
                     </div>
                 </div>
                 <!--Join Section-->
-                <div id="join_section" hidden="true">
-                    <div class="col-md-6">
-                        <div id="join_form">
+                <div id="join_section" class="col-md-6">
+                        <div>
+                            <h3>Not a member yet?</h3>
+                            <button class="btn" id="join_start">Join here</button>
+                        </div>
+                        <div id="join_form" hidden="true">
                             <span hidden="true" class="alert alert-danger">Invalid input. Please try again!</span>
-                            <form>
-                                <table>
-                                    <tr>
-                                        <td><label for="first_name">First Name</label></td>
+                            <form class="form-inline">
+                                <table class="form-group">
+                                    <tr id="first-name-row">
+                                        <td><label class="control-label">First Name</label></td>
                                         <td>
-                                            <input name="first_name" type="text">
+                                            <input name="first_name" type="text" class="form-control">
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td><label for="last_name">Last Name</label></td>
+                                    <tr id="last-name-row">
+                                        <td><label class="control-label">Last Name</label></td>
                                         <td>
-                                            <input name="last_name" type="text">
+                                            <input name="last_name" type="text" class="form-control">
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td><label for="address">Address</label></td>
+                                    <tr id="email-row">
+                                        <td><label class="control-label">Email</label></td>
                                         <td>
-                                            <input name="address" type="address">
+                                            <input name="email" type="email" class="form-control">
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td><label for="phone">Phone Number</label></td>
-                                        <td>
-                                            <input name="phone" type="text">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><label for="email">Email</label></td>
-                                        <td>
-                                            <input name="email" type="email">
-                                        </td>
-                                    </tr>
-                                </table>
+                                </table><br>
 
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="levels" id="Individual" value="Individual">
                                         Individual
                                     </label>
-                                </div>
+                                </div><br>
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="levels" id="Garden" value="Garden" checked>
                                         Garden
                                     </label>
-                                </div>
+                                </div><br>
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="levels" id="Friends and Family" value="Friends and Family">
                                         Friends and Family
                                     </label>
-                                </div>
+                                </div><br>
                                 <input class="btn" type="submit">
                             </form>
                         </div>
-                    </div>
                 </div>
                 <!--Member Home Section-->
                 <div id="member_home_section" hidden="true">
