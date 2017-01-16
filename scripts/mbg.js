@@ -13,6 +13,7 @@ var member_model = {
 
 }
 
+
 // ------------------ VIEW --------------------- //
 $(document).ready(function(){
 
@@ -60,15 +61,11 @@ $(document).ready(function(){
 
     $("#navbar-login-btn").click(renderLogin)
 
-    //$("#navbar-logout-btn").click(renderLogin)
+    $("#navbar-logout-btn").click(renderLogin)
 
-    //$("#login_form").submit(login)
+    $("#login_form").submit(login)
 
-    //$("#login_start").click(show_login_form)
-
-    $("#join_start").click(showJoinForm)
-
-    //$("#join_form").submit(join_submit)
+    $("#join_form").submit(join_submit)
 
     $("#home-faqs-btn").click(toggleFAQs)
 
@@ -76,31 +73,30 @@ $(document).ready(function(){
 
 });
 
-function showJoinForm(event) {
-
-    event.preventDefault();
-
-    //display join form
-    $("#join_form").attr("hidden", false);
-    $("#join_start").remove();
-
-    $("#join_form input[name=first_name]").empty();
-    $("#join_form input[name=last_name]").empty();
-    $("#join_form input[name=email]").empty();
-
-};
 
 
-//called when the user clicks the navbar login or logout buttons,
-// brings the user to the login/sign up page
+
+//called when the user clicks the navbar login button,
+// brings the user to the login/join page
 function renderLogin(event) {
 
     event.preventDefault();
 
+    // clear any info stored in the member_model
     clearMemberModel();
-    setLoggedInStatus(false);
-    $("#login_form input[name=member_id]").empty();
-    //if ($("#id-warning").attr("hidden", false))
+    //clear any previous login attempts in login form
+    $("#member-id-attempt").val("");
+    // clear any previous warnings on login form
+    $("#id-warning").remove();
+
+    //hide member_home_section and show login and join forms
+    $("#member_home_section").hide();
+    $("#login_section").show();
+    $("#join_section").show();
+
+    // show login button, hide logout button
+    $("#navbar-login-btn").show();
+    $("#navbar-logout-btn").hide();
 
 };
 
@@ -109,34 +105,50 @@ function login(event) {
 
     event.preventDefault();
 
-    //grab member id
-    var member_id = $("#login_form input[name=member_id]").val();
-    var id_warning = $("<span id='id-warning'></span>)").text("Member ID not valid.")
+    var id_warning = $("<span id='id-warning' class='alert alert-danger'></span>)").text("Member ID not valid.")
 
-    //validate member id
-    if (member_id != "12345"){
+    //if a warning has already been created, clear it
+    $("#id-warning").remove();
+
+    //validate member-id-attempt
+    if ($("#member-id-attempt").val() != "12345"){
         // if not valid, show error message
         $("#login_section").append(id_warning);
-         //id='id-warning' hidden='true' class='alert alert-danger'>Unable to locate member ID. Please try again!</span>")
-        //$("#id-warning").attr("hidden", false);
     } else {
-        // if valid, hide login section and show member home section
-        $("#id-warning").remove();
-        setLoggedInStatus(true);
+        // if valid, login
+        // when logged in, show member home section, hide login and join forms
+        $("#member_home_section").show();
+        $("#login_section").hide();
+        $("#join_section").hide();
+
+        // show logout button, hide login button
+        $("#navbar-logout-btn").show();
+        $("#navbar-login-btn").hide();
+
+        // for now, populate member_model w/ info
+        member_model.first_name = "Carly";
+        member_model.last_name = "Langlois";
+        member_model.email = "cj.langlois.cl@gmail.com";
+
     }
 
+
 };
+
 
 function join_submit(event) {
 
     event.preventDefault();
 
     //clear any warning text from the last submit attempt
-    $("td").remove(".text-danger");
+    $("first_name_warning").remove();
+    $("#last_name_warning").remove();
+    $("#email_warning").remove();
+    $("#email_warning2").remove();
 
     //form warnings
-    var first_name_warning = $("<td id='first_name_warning' class='text-danger'></td>)").text("Please enter a valid first name.")
-    var last_name_warning = $("<td id='last_name_warning' class='text-danger'></td>)").text("Please enter a valid last name.")
+    var first_name_warning = $("<td id='first_name_warning' class='alert alert-danger'></td>)").text("Please enter a valid first name.")
+    var last_name_warning = $("<td id='last_name_warning' class='alert alert-danger'></td>)").text("Please enter a valid last name.")
 
     //grab info from join form
     var first_name_attempt = $("#join_form input[name=first_name]").val();
@@ -165,13 +177,24 @@ function join_submit(event) {
         setLoggedInStatus(true);
     }
 
+    //clear input fields for next round?
+    $("#join_form input[name=first_name]").empty();
+    $("#join_form input[name=last_name]").empty();
+    $("#join_form input[name=email]").empty();
 
 };
 
+
 function setLoggedInStatus(isLoggedIn){
-    $("#member_home_section").attr("hidden", !isLoggedIn);
-    $("#login_section").attr("hidden", isLoggedIn);
-    $("#join_section").attr("hidden", isLoggedIn);
+    // when logged in, show member home section, hide login and join forms
+    $("#member_home_section").show();
+    $("#login_section").hide();
+    $("#join_section").hide();
+
+    // show logout button, hide login button
+    $("#navbar-logout-btn").show();
+    $("#navbar-login-btn").hide();
+
 };
 
 function clearMemberModel(){
@@ -216,7 +239,7 @@ function checkIfEmailIsValid(email){
             } else if (response.disposable == true){
                 emailIsValid = false;
             } else if (response.did_you_mean != ""){
-                var email_warning2 = $("<td id='email_warning2' class='text-danger'></td>)").text("Did you mean " + response.did_you_mean + "?");
+                var email_warning2 = $("<td id='email_warning2' class='alert alert-danger'></td>)").text("Did you mean " + response.did_you_mean + "?");
                 $("#email-row").append(email_warning2);
                 emailIsValid = false;
             } else {
