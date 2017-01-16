@@ -27,14 +27,12 @@ $(document).ready(function(){
         }
     });
 
-    //$("#join-form").hide();
-
     // ----- SIGN UP: validate user data
 
 
-    // ---- CALENDAR:
+    // ---- CALENDAR, grab calendar info from fullCalendar and our event objects:
     $("#calendar").fullCalendar({
-        // put your options and callbacks here
+        // put your options and callbacks here (from fullCalendar)
         events:[
             {
                 title: "Speaker Series: History of the Climatron",
@@ -57,18 +55,20 @@ $(document).ready(function(){
 
 
     $("#calendar-container").hide();
-    //$("#join-form").hide();
 
+    $("#navbar-logout-btn").hide();
 
     $("#navbar-login-btn").click(renderLogin)
 
-    $("#navbar-logout-btn").click(renderLogin)
+    //$("#navbar-logout-btn").click(renderLogin)
 
-    $("#login_form").submit(login)
+    //$("#login_form").submit(login)
 
-    $("#join_start").click(show_join)
+    //$("#login_start").click(show_login_form)
 
-    $("#join_form").submit(join_submit)
+    $("#join_start").click(showJoinForm)
+
+    //$("#join_form").submit(join_submit)
 
     $("#home-faqs-btn").click(toggleFAQs)
 
@@ -76,7 +76,19 @@ $(document).ready(function(){
 
 });
 
+function showJoinForm(event) {
 
+    event.preventDefault();
+
+    //display join form
+    $("#join_form").attr("hidden", false);
+    $("#join_start").remove();
+
+    $("#join_form input[name=first_name]").empty();
+    $("#join_form input[name=last_name]").empty();
+    $("#join_form input[name=email]").empty();
+
+};
 
 
 //called when the user clicks the navbar login or logout buttons,
@@ -85,6 +97,7 @@ function renderLogin(event) {
 
     event.preventDefault();
 
+    clearMemberModel();
     setLoggedInStatus(false);
     $("#login_form input[name=member_id]").empty();
     //if ($("#id-warning").attr("hidden", false))
@@ -114,15 +127,6 @@ function login(event) {
 
 };
 
-function show_join(event) {
-
-    event.preventDefault();
-
-    //display join form
-    $("#join_form").attr("hidden", false);
-    $("#join_start").remove();
-};
-
 function join_submit(event) {
 
     event.preventDefault();
@@ -133,41 +137,34 @@ function join_submit(event) {
     //form warnings
     var first_name_warning = $("<td id='first_name_warning' class='text-danger'></td>)").text("Please enter a valid first name.")
     var last_name_warning = $("<td id='last_name_warning' class='text-danger'></td>)").text("Please enter a valid last name.")
-    var email_warning = $("<td id='email_warning' class='text-danger'></td>)").text("Please enter a valid email.")
 
     //grab info from join form
-    var first_name = $("#join_form input[name=first_name]").val();
-    var last_name = $("#join_form input[name=last_name]").val();
-    var email = $("#join_form input[name=email]").val();
+    var first_name_attempt = $("#join_form input[name=first_name]").val();
+    var last_name_attempt = $("#join_form input[name=last_name]").val();
+    var email_attempt = $("#join_form input[name=email]").val();
 
-    //check form for valid inputs
-    if (first_name == ""){
+    //check for value in first name field, if valid, save value into member_model
+    if (first_name_attempt == ""){
         $("#first-name-row").append(first_name_warning);
     } else {
-        member_model.first_name = first_name;
+        member_model.first_name = first_name_attempt;
     };
 
-    if (last_name == ""){
+    //check for value in last name field, if valid, save value into member_model
+    if (last_name_attempt == ""){
         $("#last-name-row").append(last_name_warning);
     } else {
-        member_model.last_name = last_name;
+        member_model.last_name = last_name_attempt;
     };
 
-    if (!emailIsValid(email)){
-        $("#email-row").append(email_warning);
-    } else {
-        member_model.email = email;
-        //form_checks_array.push(last_name);
-        //console.log(member_model);
-    };
-    //console.log(member_model);
+    //check for value in email field, if valid, save value into member_model
+    checkIfEmailIsValid(email_attempt);
 
-        /*
-    } else if (last_name == ""){
-        $("#last-name-row").append(last_name_warning);
-    } else {
+    //check if all member_model field contain values, if so, setLoggedInStatus to true
+    if (memberIsValid() == true){
         setLoggedInStatus(true);
-    }*/
+    }
+
 
 };
 
@@ -176,6 +173,15 @@ function setLoggedInStatus(isLoggedIn){
     $("#login_section").attr("hidden", isLoggedIn);
     $("#join_section").attr("hidden", isLoggedIn);
 };
+
+function clearMemberModel(){
+    //clear member_model values
+    member_model.first_name = "";
+    member_model.last_name = "";
+    member_model.email = "";
+    member_model.level = "";
+
+}
 
 function toggleFAQs(event) {
 
@@ -195,7 +201,7 @@ function toggleCalendar(event) {
 };
 
 //------- FORM VALIDATION ------
-function emailIsValid(email){
+function checkIfEmailIsValid(email){
 
     // make an AJAX call to the Mailbox Layer API
     $.ajax({
@@ -203,21 +209,26 @@ function emailIsValid(email){
         success: function(response) {
             console.log(response);
 
-            var did_you_mean = response.did_you_mean;
-            console.log(did_you_mean);
-
-            if (did_you_mean != ""){
-                var email_warning2 = $("<td id='email_warning2' class='text-danger'></td>)").text(did_you_mean);
+            if (email == ""){
+                var emailIsValid = false;
+            } else if (response.format_valid == false){
+                emailIsValid = false;
+            } else if (response.disposable == true){
+                emailIsValid = false;
+            } else if (response.did_you_mean != ""){
+                var email_warning2 = $("<td id='email_warning2' class='text-danger'></td>)").text("Did you mean " + response.did_you_mean + "?");
                 $("#email-row").append(email_warning2);
+                emailIsValid = false;
             } else {
-                return;
-            };
+                emailIsValid = true;
+            }
 
-            if (response.format_valid == false || response.disposable == true){
-                return false;
+            if (emailIsValid){
+                member_model.email = email_attempt;
             } else {
-                return true;
-            };
+                var email_warning = $("<td id='email_warning' class='text-danger'></td>)").text("Please enter a valid email.")
+                $("#email-row").append(email_warning);
+            }
 
         },
         error: function(err) {
@@ -226,18 +237,14 @@ function emailIsValid(email){
     });
 };
 
-
-    /*
-
-
-    function isValidForm(){
-        if (member_array.every(isValidInput)){
-            $("#member_home_section").attr("hidden", false);
-            $("#join_section").attr("hidden", true);
-        } else {
-            $(".alert").attr("hidden", false);
-        }
+function memberIsValid(){
+    if (member_model.first_name == ""){
+        return false;
+    } else if (member_model.last_name == ""){
+        return false;
+    } else if (member_model.email = ""){
+        return false;
+    } else {
+        return true;
     }
-    */
-
-    //member_model.first_name = first_name;
+};

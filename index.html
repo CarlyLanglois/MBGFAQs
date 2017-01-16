@@ -50,8 +50,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a id="navbar-login-btn">Log In</a></li>
-            <li><a id="navbar-logout-btn">Log Out</a></li>
+            <li id="navbar-login-btn"><a>Log In</a></li>
+            <li id="navbar-logout-btn"><a>Log Out</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -68,8 +68,11 @@
             <main>
                 <!--Login Section-->
                 <div id="login_section" class="col-md-6">
-                    <h3>Already a member?</h3>
-                    <div id="login_form">
+                    <div>
+                        <h3>Already a member?</h3>
+                        <button class="btn" id="login_start">Login here</button>
+                    </div>
+                    <div id="login_form" hidden="true">
                         <form class="form-inline">
                             <div class="form-group">
                                 <label class="control-label">Member ID</label>
