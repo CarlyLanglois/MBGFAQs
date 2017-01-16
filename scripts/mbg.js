@@ -141,10 +141,9 @@ function join_submit(event) {
     event.preventDefault();
 
     //clear any warning text from the last submit attempt
-    $("first_name_warning").remove();
+    $("#first_name_warning").remove();
     $("#last_name_warning").remove();
     $("#email_warning").remove();
-    $("#email_warning2").remove();
 
     //form warnings
     var first_name_warning = $("<td id='first_name_warning' class='alert alert-danger'></td>)").text("Please enter a valid first name.")
@@ -232,26 +231,31 @@ function checkIfEmailIsValid(email){
         success: function(response) {
             console.log(response);
 
+            var email_warning = $("<td id='email_warning' class='alert alert-danger'></td>)");
+            console.log(email_warning);
             if (email == ""){
                 var emailIsValid = false;
+                $("#email-row").append(email_warning);
+                $("#email_warning").text("Please enter a valid email address.");
             } else if (response.format_valid == false){
                 emailIsValid = false;
+                $("#email-row").append(email_warning);
+                $("#email_warning").text("Please enter a valid email address.");
             } else if (response.disposable == true){
                 emailIsValid = false;
+                $("#email-row").append(email_warning);
+                $("#email_warning").text("Please enter a valid email address.");
             } else if (response.did_you_mean != ""){
-                var email_warning2 = $("<td id='email_warning2' class='alert alert-danger'></td>)").text("Did you mean " + response.did_you_mean + "?");
-                $("#email-row").append(email_warning2);
                 emailIsValid = false;
+                $("#email-row").append(email_warning);
+                $("#email_warning").text("Did you mean " + response.did_you_mean + "?");
             } else {
                 emailIsValid = true;
             }
 
             if (emailIsValid){
                 member_model.email = email_attempt;
-            } else {
-                var email_warning = $("<td id='email_warning' class='text-danger'></td>)").text("Please enter a valid email.")
-                $("#email-row").append(email_warning);
-            }
+            };
 
         },
         error: function(err) {
