@@ -14,7 +14,7 @@ var member_model = {
 }
 
 
-// ------------------ VIEW --------------------- //
+// -------------------------------- VIEW / INITIAL STATE ----------------------------------- //
 $(document).ready(function(){
 
     // ---- NAVBAR: brand image changes when the window scrolls up and down
@@ -28,8 +28,7 @@ $(document).ready(function(){
         }
     });
 
-    // ----- SIGN UP: validate user data
-
+    //console.log(Math.round(Math.random()*100000));
 
     // ---- CALENDAR, grab calendar info from fullCalendar and our event objects:
     $("#calendar").fullCalendar({
@@ -48,13 +47,13 @@ $(document).ready(function(){
                 allDay: false
             }
         ],
-        eventClick: function() {
-            console.log("this works, ya?!");
+        eventMouseover: function() {
+            console.log("this prints!");
         }
     });
+    //console.log($("#calendar").fullCalendar(events));
 
-
-
+    //-------------- BUTTONS and CALLBACKS:
     $("#calendar-container").hide();
 
     $("#navbar-logout-btn").hide();
@@ -74,7 +73,7 @@ $(document).ready(function(){
 });
 
 
-
+// ---------------------------- USER MANAGEMENT ----------------------------//
 
 //called when the user clicks the navbar login button,
 // brings the user to the login/join page
@@ -84,10 +83,16 @@ function renderLogin(event) {
 
     // clear any info stored in the member_model
     clearMemberModel();
-    //clear any previous login attempts in login form
+    //clear any previous login and join attempts in forms
     $("#member-id-attempt").val("");
-    // clear any previous warnings on login form
+    $("#join_form input[name=first_name]").val("");
+    $("#join_form input[name=last_name]").val("");
+    $("#join_form input[name=email]").val("");
+    // clear any previous warnings on login and join forms
     $("#id-warning").remove();
+    $("#first_name_warning").remove();
+    $("#last_name_warning").remove();
+    $("#email_warning").remove();
 
     //hide member_home_section and show login and join forms
     $("#member_home_section").hide();
@@ -100,7 +105,7 @@ function renderLogin(event) {
 
 };
 
-
+// when the login form is submitted
 function login(event) {
 
     event.preventDefault();
@@ -130,12 +135,11 @@ function login(event) {
         member_model.last_name = "Langlois";
         member_model.email = "cj.langlois.cl@gmail.com";
 
-    }
-
+    };
 
 };
 
-
+// when the join form is submitted
 function join_submit(event) {
 
     event.preventDefault();
@@ -171,68 +175,31 @@ function join_submit(event) {
     //check for value in email field, if valid, save value into member_model
     checkIfEmailIsValid(email_attempt);
 
-    //check if all member_model field contain values, if so, setLoggedInStatus to true
+    //TODO: assign member level based on checked radio box
+    //$("#join_form input[type=radio]").on("click", function(){
+        //$()
+    //})
+    //console.log(member_model.level);
+
+    //check if all member_model fields contain values, if so, setLoggedInStatus to true
     if (memberIsValid() == true){
         setLoggedInStatus(true);
-    }
-
-    //clear input fields for next round?
-    $("#join_form input[name=first_name]").empty();
-    $("#join_form input[name=last_name]").empty();
-    $("#join_form input[name=email]").empty();
+    };
+    console.log(memberIsValid());
 
 };
 
 
-function setLoggedInStatus(isLoggedIn){
-    // when logged in, show member home section, hide login and join forms
-    $("#member_home_section").show();
-    $("#login_section").hide();
-    $("#join_section").hide();
-
-    // show logout button, hide login button
-    $("#navbar-logout-btn").show();
-    $("#navbar-login-btn").hide();
-
-};
-
-function clearMemberModel(){
-    //clear member_model values
-    member_model.first_name = "";
-    member_model.last_name = "";
-    member_model.email = "";
-    member_model.level = "";
-
-}
-
-function toggleFAQs(event) {
-
-    event.preventDefault();
-
-    $("#faqs-container").toggle();
-    $("#calendar-container").hide();
-}
-
-function toggleCalendar(event) {
-
-    event.preventDefault();
-
-    $("#calendar-container").toggle();
-    $("#faqs-container").hide();
-
-};
-
-//------- FORM VALIDATION ------
+//----------- EMAIL VALIDATION:
 function checkIfEmailIsValid(email){
 
     // make an AJAX call to the Mailbox Layer API
     $.ajax({
         url: "http://apilayer.net/api/check?access_key=1ca6a150c9b1eef31a10d783d601f658&email=" + email + "&smtp=0",
         success: function(response) {
-            console.log(response);
 
             var email_warning = $("<td id='email_warning' class='alert alert-danger'></td>)");
-            console.log(email_warning);
+
             if (email == ""){
                 var emailIsValid = false;
                 $("#email-row").append(email_warning);
@@ -254,7 +221,7 @@ function checkIfEmailIsValid(email){
             }
 
             if (emailIsValid){
-                member_model.email = email_attempt;
+                member_model.email = email;
             };
 
         },
@@ -262,6 +229,27 @@ function checkIfEmailIsValid(email){
             console.log(err);
         }
     });
+};
+
+
+function setLoggedInStatus(isLoggedIn){
+    // when logged in, show member home section, hide login and join forms
+    $("#member_home_section").show();
+    $("#login_section").hide();
+    $("#join_section").hide();
+
+    // show logout button, hide login button
+    $("#navbar-logout-btn").show();
+    $("#navbar-login-btn").hide();
+
+};
+
+function clearMemberModel(){
+    //clear member_model values
+    member_model.first_name = "";
+    member_model.last_name = "";
+    member_model.email = "";
+    member_model.level = "";
 };
 
 function memberIsValid(){
@@ -274,4 +262,26 @@ function memberIsValid(){
     } else {
         return true;
     }
+};
+
+function createID(){
+    var newID = Math.round(Math.random()*100000);
+};
+
+// ------------- MEMBER HOME VIEW ------------- //
+function toggleFAQs(event) {
+
+    event.preventDefault();
+
+    $("#faqs-container").toggle();
+    $("#calendar-container").hide();
+};
+
+function toggleCalendar(event) {
+
+    event.preventDefault();
+
+    $("#calendar-container").toggle();
+    $("#faqs-container").hide();
+
 };

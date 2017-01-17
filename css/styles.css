@@ -74,7 +74,7 @@ a{
     color: #c9d7b2;
 }
 
-#events{
+#events-bubble{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -88,7 +88,7 @@ a{
     text-shadow: 3px 3px 3px black;
 }
 
-#events a{
+#events-bubble a{
     color: #c9d7b2;
 }
 
@@ -100,7 +100,7 @@ a{
   font-weight: 800;
 }
 
-#title{
+#statement{
   margin-top: 3%;
 }
 
